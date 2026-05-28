@@ -11,11 +11,11 @@ def pet_payload():
     }
 
 @pytest.fixture
-def created_pet():
-    payload = pet_payload()
-    response = create_pet(payload)
+def created_pet(pet_payload):
+    response = create_pet(pet_payload)
     pet_id = response.json()["id"]
 
-    yield pet_id, payload
+    yield pet_payload, pet_id
 
     delete_pet(pet_id)
+
