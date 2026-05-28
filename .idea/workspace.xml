@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a7c0bda-d57b-4412-8df4-c8ece4b2509e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/petstore_api_automation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/pet_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_pet.py" afterDir="false" />
+    <list default="true" id="5a7c0bda-d57b-4412-8df4-c8ece4b2509e" name="Changes" comment="feat: add CRUD tests for Pet API">
+      <change afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_pet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "leo-bimpf"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/leo-bimpf/petstore_api_automation.git",
+    "accountId": "cda3658e-0eb6-4d38-a917-2686353ba5bd"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0,
   "fromUser": false
@@ -71,9 +73,22 @@
       <option name="presentableId" value="Default" />
       <updated>1780001371652</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat: add CRUD tests for Pet API">
+      <option name="closed" value="true" />
+      <created>1780004873024</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1780004873024</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: add CRUD tests for Pet API" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add CRUD tests for Pet API" />
   </component>
 </project>
