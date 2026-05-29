@@ -38,10 +38,14 @@ def user_payload():
     }
 
 @pytest.fixture
-def created_user(user_payload):
+def created_user(user_client, user_payload):
     response = user_client.create_user(user_payload)
     username = user_payload["username"]
 
     yield user_payload, username
 
     user_client.delete_user(username)
+
+@pytest.fixture
+def user_client():
+    return UserClient()
