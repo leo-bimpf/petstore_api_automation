@@ -20,3 +20,4 @@ class UserClient(BaseClient):
 
     def logout_user(self):
         return self.get("/user/logout")
+
