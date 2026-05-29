@@ -19,3 +19,9 @@ This is a simple API automation project written in Python using pytest and reque
 
 ```bash
 pytest -v --alluredir=allure-results
+```
+## Open Allure report in browser
+
+```bash
+allure serve allure-results
+```

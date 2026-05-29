@@ -1,0 +1,2 @@
+
+GET NEGATIVE: {"code":1,"type":"error","message":"Pet not found"}

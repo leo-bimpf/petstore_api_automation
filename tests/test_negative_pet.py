@@ -1,5 +1,9 @@
 import pytest
+import allure
+
 from clients.pet_client import PetClient
+from utils.allure_utils import log_response
+
 pet_client = PetClient()
 
 @pytest.mark.parametrize(
@@ -12,8 +16,11 @@ pet_client = PetClient()
     ]
 )
 def test_get_pet_negative_pet(pet_id):
-    response = pet_client.get_pet(pet_id)
-    print("\nGET NEGATIVE:", response.text)
+    with allure.step(f"GET pet with invalid id: {pet_id}"):
+        response = pet_client.get_pet(pet_id)
+
+        log_response(response)
+
     assert response.status_code in [404, 400]
 
 @pytest.mark.parametrize(
@@ -26,8 +33,11 @@ def test_get_pet_negative_pet(pet_id):
     ]
 )
 def test_delete_pet_negative(pet_id):
-    response = pet_client.delete_pet(pet_id)
-    print("\nDELETE NEGATIVE:", response.text)
+    with allure.step(f"DELETE pet with invalid id: {pet_id}"):
+        response = pet_client.delete_pet(pet_id)
+
+        log_response(response)
+
     assert response.status_code in [404, 400]
 
 @pytest.mark.parametrize(
@@ -56,7 +66,10 @@ def test_delete_pet_negative(pet_id):
     ]
 )
 def test_create_pet_negative(payload, expected_status):
-    response = pet_client.create_pet(payload)
-    print("\nCREATE NEGATIVE:", response.json())
+    with allure.step(f"POST pet with invalid payload: {payload}"):
+        response = pet_client.create_pet(payload)
+
+        log_response(response)
+
     assert response.status_code in expected_status
     # API allows empty payload creation — behavior is inconsistent
