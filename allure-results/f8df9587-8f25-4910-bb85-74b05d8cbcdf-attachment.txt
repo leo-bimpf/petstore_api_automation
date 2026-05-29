@@ -1,2 +1,0 @@
-
-CREATE NEGATIVE: {'id': 9223372036854775807, 'photoUrls': [], 'tags': []}
