@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a7c0bda-d57b-4412-8df4-c8ece4b2509e" name="Changes" comment="feat: add pytest fixtures and refactor CRUD tests for Pet API">
-      <change afterPath="$PROJECT_DIR$/clients/base_client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/pet_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/pet_service.py" beforeDir="false" />
+    <list default="true" id="5a7c0bda-d57b-4412-8df4-c8ece4b2509e" name="Changes" comment="refactor: add BaseClient layer for API requests">
       <change beforePath="$PROJECT_DIR$/tests/test_pet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780007934402</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor: add BaseClient layer for API requests">
+      <option name="closed" value="true" />
+      <created>1780040524213</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1780040524213</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +114,7 @@
     <MESSAGE value="feat: add CRUD tests for Pet API" />
     <MESSAGE value="feat: add CRUD flow test with pytest and service layer" />
     <MESSAGE value="feat: add pytest fixtures and refactor CRUD tests for Pet API" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add pytest fixtures and refactor CRUD tests for Pet API" />
+    <MESSAGE value="refactor: add BaseClient layer for API requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: add BaseClient layer for API requests" />
   </component>
 </project>
