@@ -23,3 +23,7 @@ class BaseClient:
             f"{self.base_url}{endpoint}"
         )
 
+    def put(self, endpoint, json=None):
+        return self.session.put(
+            f"{self.base_url}{endpoint}", json=json
+        )

@@ -8,11 +8,6 @@ pet_client = PetClient()
 @allure.title("Create pet with valid payload")
 def test_create_pet(pet_payload):
     response = pet_client.create_pet(pet_payload)
-    allure.attach(
-        str(response.request.url),
-        name="Request URL",
-        attachment_type=allure.attachment_type.TEXT
-    )
 
     log_response(response)
 
@@ -31,11 +26,6 @@ def test_delete_pet(pet_payload):
     pet_id = create_response.json()["id"]
 
     delete_response = pet_client.delete_pet(pet_id)
-    allure.attach(
-        str(delete_response.request.url),
-        name="DELETE URL",
-        attachment_type=allure.attachment_type.TEXT
-    )
 
     log_response(delete_response)
 
@@ -55,12 +45,6 @@ def test_get_pet(created_pet):
     payload, pet_id = created_pet
 
     response = pet_client.get_pet(pet_id)
-
-    allure.attach(
-        str(response.request.url),
-        name="GET URL",
-        attachment_type=allure.attachment_type.TEXT
-    )
 
     log_response(response)
 
