@@ -1,2 +1,0 @@
-
-CREATE NEGATIVE: {'code': 500, 'type': 'unknown', 'message': 'something bad happened'}
