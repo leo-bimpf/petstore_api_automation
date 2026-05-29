@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a7c0bda-d57b-4412-8df4-c8ece4b2509e" name="Changes" comment="feat: added negative tests">
-      <change beforePath="$PROJECT_DIR$/services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/allure_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_pet.py" afterDir="false" />
+    <list default="true" id="5a7c0bda-d57b-4412-8df4-c8ece4b2509e" name="Changes" comment="feat: added allure and logging integration">
+      <change afterPath="$PROJECT_DIR$/    README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/levkirilov/PycharmProjects/petstore_api_automation",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "editor.preferences.completion.popup"
   }
 }]]></component>
@@ -127,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780043929074</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: added allure and logging integration">
+      <option name="closed" value="true" />
+      <created>1780045750239</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780045750239</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +148,7 @@
     <MESSAGE value="refactor: add BaseClient layer for API requests" />
     <MESSAGE value="feat: added some logging" />
     <MESSAGE value="feat: added negative tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added negative tests" />
+    <MESSAGE value="feat: added allure and logging integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added allure and logging integration" />
   </component>
 </project>
