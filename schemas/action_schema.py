@@ -1,0 +1,10 @@
+
+user_action_schema = {
+  "type": "object",
+  "required": ["code", "type", "message"],
+  "properties": {
+    "code": {"type": "integer"},
+    "type": {"type": "string"},
+    "message": {"type": "string"}
+  }
+}

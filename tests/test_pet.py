@@ -1,12 +1,12 @@
-from clients.pet_client import PetClient
 from utils.allure_utils import log_response
 import allure
-pet_client = PetClient()
+from utils.schema_validator import validate_schema
+from schemas.pet_schema import pet_schema
 
 @allure.feature("Pet API")
 @allure.story("Create pet")
 @allure.title("Create pet with valid payload")
-def test_create_pet(pet_payload):
+def test_create_pet(pet_client, pet_payload):
     response = pet_client.create_pet(pet_payload)
 
     log_response(response)
@@ -21,7 +21,7 @@ def test_create_pet(pet_payload):
 @allure.feature("Pet API")
 @allure.story("Delete pet")
 @allure.title("Delete pet and verify it is removed")
-def test_delete_pet(pet_payload):
+def test_delete_pet(pet_client, pet_payload):
     create_response = pet_client.create_pet(pet_payload)
     pet_id = create_response.json()["id"]
 
@@ -41,7 +41,7 @@ def test_delete_pet(pet_payload):
 @allure.story("Get pet")
 @allure.title("Get created pet by id")
 
-def test_get_pet(created_pet):
+def test_get_pet(pet_client, created_pet):
     payload, pet_id = created_pet
 
     response = pet_client.get_pet(pet_id)
@@ -49,6 +49,9 @@ def test_get_pet(created_pet):
     log_response(response)
 
     assert response.status_code == 200
+
+    validate_schema(response, pet_schema)
+
     assert response.json()["id"] == payload["id"]
     assert response.json()["name"] == payload["name"]
     assert response.json()["status"] == payload["status"]

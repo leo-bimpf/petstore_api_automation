@@ -1,4 +1,6 @@
-
+from utils.schema_validator import validate_schema
+from schemas.user_schema import user_schema
+from schemas.action_schema import user_action_schema
 from utils.allure_utils import log_response
 import allure
 
@@ -11,6 +13,8 @@ def test_create_user(user_client, user_payload):
     log_response(response)
     assert response.status_code == 200
 
+    validate_schema(response, user_action_schema)
+
 @allure.feature("User API")
 @allure.story("Get user")
 @allure.title("Get user by username")
@@ -18,6 +22,8 @@ def test_get_user(user_client, created_user):
     payload, username = created_user
     response = user_client.get_user(username)
     log_response(response)
+
+    validate_schema(response, user_schema)
 
     assert response.status_code == 200
     assert response.json()["id"] == payload["id"]
@@ -47,8 +53,6 @@ def test_delete_user(user_client, created_user):
 @allure.title("Update user information")
 def test_update_user(user_client, created_user):
     payload, username = created_user
-
-    updated_body = payload.copy()
     updated_body = {
         "id": payload["id"],
         "username": username,
@@ -64,12 +68,14 @@ def test_update_user(user_client, created_user):
 
     log_response(update_response)
 
-
     assert update_response.status_code == 200
+
+    validate_schema(update_response, user_action_schema)
 
     get_response = user_client.get_user(username)
     response_json = get_response.json()
 
+    assert response_json == updated_body
     assert response_json["firstName"] == updated_body["firstName"]
     assert response_json["email"] == updated_body["email"]
     assert response_json["lastName"] == updated_body["lastName"]

@@ -3,8 +3,7 @@ import random
 
 from clients.pet_client import PetClient
 from clients.user_client import UserClient
-pet_client = PetClient()
-user_client = UserClient()
+
 
 @pytest.fixture
 def pet_payload():
@@ -15,7 +14,7 @@ def pet_payload():
     }
 
 @pytest.fixture
-def created_pet(pet_payload):
+def created_pet(pet_client, pet_payload):
     response = pet_client.create_pet(pet_payload)
     pet_id = response.json()["id"]
 
@@ -49,3 +48,7 @@ def created_user(user_client, user_payload):
 @pytest.fixture
 def user_client():
     return UserClient()
+
+@pytest.fixture
+def pet_client():
+    return PetClient()
