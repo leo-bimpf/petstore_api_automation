@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  tests:
+    build: .
+    container_name: petstore-tests
+    environment:
+      - BASE_URL=https://petstore.swagger.io
+    command: pytest -v
