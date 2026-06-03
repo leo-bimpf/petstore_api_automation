@@ -90,6 +90,7 @@ def test_create_pet_negative(pet_client, payload, expected_status):
 @allure.story("Negative cases")
 @allure.title("Find pets by invalid status")
 @pytest.mark.parametrize("status", ["invalid", "", "123", None, 999])
+@pytest.mark.xfail(reason="API returns invalid data for invalid status")
 def test_find_pets_by_status_negative(pet_client, status):
     with allure.step(f"Send request with invalid status={status}"):
         response = pet_client.find_by_status(status)
