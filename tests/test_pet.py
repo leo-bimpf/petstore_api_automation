@@ -81,3 +81,30 @@ def test_get_pet(pet_client, created_pet):
         assert response.json()["id"] == payload["id"]
         assert response.json()["name"] == payload["name"]
         assert response.json()["status"] == payload["status"]
+
+# =========================
+# UPDATE PET
+# =========================
+@allure.feature("Pet API")
+@allure.story("Update pet")
+@allure.title("Update an existing pet")
+def test_update_pet(pet_client, created_pet):
+
+    with allure.step("Send request to update pet"):
+        _, pet_id = created_pet
+        updated_payload = {"id": pet_id, "name": "Updated_dog", "status": "sold"}
+        response = pet_client.update_pet(updated_payload)
+
+    with allure.step("Log update response"):
+        log_response(response)
+
+    with allure.step("Check status code is 200"):
+        assert response.status_code == 200
+
+    with allure.step("Verify pet is updated"):
+        get_response = pet_client.get_pet(pet_id)
+        assert get_response.json()["name"] == "Updated_dog"
+        assert get_response.json()["status"] == "sold"
+
+    with allure.step("Log get response"):
+        log_response(get_response)
