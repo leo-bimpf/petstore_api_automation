@@ -12,3 +12,6 @@ class PetClient(BaseClient):
 
     def update_pet(self, payload):
         return self.put("/pet", json=payload)
+
+    def find_by_status(self, status):
+        return self.get("/pet/findByStatus", params={"status": status})
