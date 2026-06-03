@@ -1,4 +1,5 @@
 import allure
+import pytest
 from utils.schema_validator import validate_schema
 from schemas.user_schema import user_schema
 from schemas.action_schema import user_action_schema
@@ -8,6 +9,8 @@ from utils.allure_utils import log_response
 # =========================
 # CREATE USER
 # =========================
+@pytest.mark.user
+@pytest.mark.positive
 @allure.feature("User API")
 @allure.story("Create user")
 @allure.title("Create user with valid payload")
@@ -29,6 +32,8 @@ def test_create_user(user_client, user_payload):
 # =========================
 # GET USER
 # =========================
+@pytest.mark.user
+@pytest.mark.positive
 @allure.feature("User API")
 @allure.story("Get user")
 @allure.title("Get user by username")
@@ -61,6 +66,8 @@ def test_get_user(user_client, created_user):
 # =========================
 # DELETE USER
 # =========================
+@pytest.mark.user
+@pytest.mark.positive
 @allure.feature("User API")
 @allure.story("Delete user")
 @allure.title("Delete user and verify removal")
@@ -84,6 +91,8 @@ def test_delete_user(user_client, created_user):
 # =========================
 # UPDATE USER
 # =========================
+@pytest.mark.user
+@pytest.mark.positive
 @allure.feature("User API")
 @allure.story("Update user")
 @allure.title("Update user information")
@@ -124,6 +133,8 @@ def test_update_user(user_client, created_user):
 # =========================
 # LOGIN USER
 # =========================
+@pytest.mark.user
+@pytest.mark.positive
 @allure.feature("User API")
 @allure.story("Login user")
 @allure.title("Login user with valid credentials")
@@ -148,6 +159,8 @@ def test_login_user(user_client, created_user):
 # =========================
 # LOGOUT USER
 # =========================
+@pytest.mark.user
+@pytest.mark.positive
 @allure.feature("User API")
 @allure.story("Logout user")
 @allure.title("Logout current user")

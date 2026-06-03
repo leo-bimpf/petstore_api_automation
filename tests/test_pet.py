@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from utils.allure_utils import log_response
 from utils.schema_validator import validate_schema
 from schemas.pet_schema import pet_schema
@@ -7,6 +9,8 @@ from schemas.pet_schema import pet_schema
 # =========================
 # CREATE PET
 # =========================
+@pytest.mark.pet
+@pytest.mark.positive
 @allure.feature("Pet API")
 @allure.story("Create pet")
 @allure.title("Create pet with valid payload")
@@ -34,6 +38,8 @@ def test_create_pet(pet_client, pet_payload):
 # =========================
 # DELETE PET
 # =========================
+@pytest.mark.pet
+@pytest.mark.positive
 @allure.feature("Pet API")
 @allure.story("Delete pet")
 @allure.title("Delete pet and verify it is removed")
@@ -60,6 +66,8 @@ def test_delete_pet(pet_client, pet_payload):
 # =========================
 # GET PET
 # =========================
+@pytest.mark.pet
+@pytest.mark.positive
 @allure.feature("Pet API")
 @allure.story("Get pet")
 @allure.title("Get created pet by id")
@@ -82,9 +90,12 @@ def test_get_pet(pet_client, created_pet):
         assert response.json()["name"] == payload["name"]
         assert response.json()["status"] == payload["status"]
 
+
 # =========================
 # UPDATE PET
 # =========================
+@pytest.mark.pet
+@pytest.mark.positive
 @allure.feature("Pet API")
 @allure.story("Update pet")
 @allure.title("Update an existing pet")
@@ -108,3 +119,31 @@ def test_update_pet(pet_client, created_pet):
 
     with allure.step("Log get response"):
         log_response(get_response)
+
+
+# =========================
+# FIND PETS BY STATUS
+# =========================
+@pytest.mark.pet
+@pytest.mark.positive
+@allure.feature("Pet API")
+@allure.story("Find pets by status")
+@allure.title("Get pets by status")
+@pytest.mark.parametrize("status", ["available", "sold", "pending"])
+def test_find_pets_by_status(pet_client, status):
+
+    with allure.step(f"Send request to find pets by status={status}"):
+        response = pet_client.find_by_status(status)
+
+    with allure.step("Log response"):
+        log_response(response)
+
+    with allure.step("Check status code is 200"):
+        assert response.status_code == 200
+
+    with allure.step("Check response is list"):
+        data = response.json()
+
+        assert isinstance(data, list)
+        assert len(data) > 0
+        assert all(pet.get("status") == status for pet in data)
