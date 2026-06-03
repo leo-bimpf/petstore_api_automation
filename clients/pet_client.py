@@ -9,3 +9,6 @@ class PetClient(BaseClient):
 
     def delete_pet(self, pet_id):
         return self.delete(f"/pet/{pet_id}")
+
+    def update_pet(self, payload):
+        return self.put("/pet", json=payload)

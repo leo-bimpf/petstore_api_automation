@@ -62,7 +62,7 @@ def test_delete_pet_negative(pet_client, pet_id):
 
     ]
 )
-@pytest.mark.xfail(reason="Swagger Petstore accepts invalid payloads inconsistently")
+@pytest.mark.xfail(reason="Swagger petstore accepts invalid payloads inconsistently")
 def test_create_pet_negative(pet_client, payload, expected_status):
 
     with allure.step(f"POST pet with invalid payload: {payload}"):
