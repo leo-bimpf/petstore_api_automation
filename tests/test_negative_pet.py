@@ -98,4 +98,4 @@ def test_find_pets_by_status_negative(pet_client, status):
     with allure.step("Check response is not 200 OR empty result"):
         data = response.json()
         assert response.status_code == 200
-        assert all(item.get("status") != "invalid" for item in data)
+        assert data == []
